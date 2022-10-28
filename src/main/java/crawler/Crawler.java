@@ -34,7 +34,7 @@ public class Crawler {
      * 启动爬虫
      * @param url
      */
-    public int startCrawler(String url,String key){
+    public Vector<String> startCrawler(String url,String key){
         Vector<String> houses_string = new Vector<>();
         //调用Jsoup读取网页
         Document document = getURL(url+key);
@@ -99,25 +99,7 @@ public class Crawler {
                     cost+","+
                     averagePrice);
         }
-        //写入文件
-        File writeFile = new File("house.csv");
-
-        try{
-            BufferedWriter writeText = new BufferedWriter(new FileWriter(writeFile));
-            for(String str:houses_string){
-                writeText.newLine();
-                writeText.write(str);
-            }
-            writeText.flush();
-            writeText.close();
-        }catch (FileNotFoundException e){
-            System.out.println("没有找到指定文件");
-            return 0;
-        }catch (IOException e){
-            System.out.println("文件读写出错");
-            return 0;
-        }
-        return 1;
+        return houses_string;
         //hhhhhhhhhh
 
     }
