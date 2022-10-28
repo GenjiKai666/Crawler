@@ -101,8 +101,6 @@ public class Crawler {
         }
         return houses_string;
         //hhhhhhhhhh
-        //hhhhh
-        //hhhhhhhhhhhhh
 
     }
 }
